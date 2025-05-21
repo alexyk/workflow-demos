@@ -1,0 +1,16 @@
+name: 🎶 Git Log Demo
+run-name: 🎶 Experimenting with git log in reusables (workflows, actions)
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "dev" ]
+  # pull_request:
+  #   branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - run: git log -5 --oneline
+    - uses: alexyk/workflows/.github/actions/branch-check@dev
